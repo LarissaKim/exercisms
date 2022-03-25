@@ -27,6 +27,32 @@ Math.floor(234.34); // => 234
 Math.ceil(234.34); // => 235
 ```
 
+### Additional Notes
+
+Math in JavaScript is floating-point math, so:
+
+```js
+0.1 + 0.2 === 0.3;
+// => false
+```
+
+**[Tips from StackOverflow](https://stackoverflow.com/a/588014)**
+
+- Round floating-point numbers to the desired number of decimal places before displaying
+- Replace equality tests with comparisons with the desired tolerance:
+
+  :x:
+
+  ```js
+  if (x === y) ...
+  ```
+
+  :heavy_check_mark:
+
+  ```js
+  if (abs(x - y) < requiredToleranceValue) ...
+  ```
+
 ## Arithmetic Operators
 
 JavaScript provides 6 different operators to perform basic arithmetic operations on numbers.
