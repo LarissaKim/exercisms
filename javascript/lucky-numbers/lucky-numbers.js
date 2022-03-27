@@ -8,10 +8,7 @@
  * @returns {number} sum of the two arrays
  */
 export function twoSum(array1, array2) {
-  const num1 = Number(array1.join('')); // or parseInt(array1.join(''), 10);
-  const num2 = Number(array2.join(''));
-
-  return num1 + num2;
+  return parseInt(array1.join(''), 10) + parseInt(array2.join(''), 10);
 }
 
 /**
@@ -21,11 +18,10 @@ export function twoSum(array1, array2) {
  * @returns {boolean}  whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
-  const stringArray = [...String(value)];
-  const reversedString = stringArray.reverse().join('');
-  const reversedValue = Number(reversedString);
-
-  return value === reversedValue ? true : false;
+  return String(value) === [...String(value)].reverse().join('');
+  // If `value` could not be trusted to be a valid number:
+  // (would also need to check if Number.isFinite(value))
+  // return parseInt(value, 10).toString() === [...parseInt(value, 10).toString()].reverse().join('');
 }
 
 /**
@@ -36,16 +32,10 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  if (!Boolean(input)) {
+  if (!input) {
     return 'Required field';
   }
 
-  const number = Number(input);
-  if (number === 0 || Number.isNaN(number)) {
-    return 'Must be a number besides 0';
-  }
-
-  if (number > 0) {
-    return '';
-  }
+  // Evaluate the numeric representation of the input as a boolean
+  return Number(input) ? '' : 'Must be a number besides 0';
 }
