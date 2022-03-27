@@ -44,7 +44,7 @@ export function limesToCut(wedgesNeeded, limes) {
   let wedgeSupply = 0;
   let limeCount = 0;
 
-  while (wedgeSupply < wedgesNeeded) {
+  while (limes.length > 0 && wedgeSupply < wedgesNeeded) {
     switch (limes[limeCount]) {
       case 'small':
         wedgeSupply += LIME_WEDGES_SM;
