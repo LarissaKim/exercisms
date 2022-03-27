@@ -44,7 +44,9 @@ export function limesToCut(wedgesNeeded, limes) {
   let wedgeSupply = 0;
   let limeCount = 0;
 
+  // First check if we have whole limes in stock
   if (limes.length > 0) {
+    // Then determine the number of limes that need to be cut
     while (wedgeSupply < wedgesNeeded) {
       switch (limes[limeCount]) {
         case 'small':
@@ -61,8 +63,10 @@ export function limesToCut(wedgesNeeded, limes) {
       limeCount++;
 
       if (limeCount < limes.length) {
+        // We still have whole limes in stock
         continue;
       } else {
+        // We have run out of whole limes
         break;
       }
     }
