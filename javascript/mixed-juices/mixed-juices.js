@@ -1,8 +1,4 @@
 // @ts-check
-//
-// The line above enables type checking for this file. Various IDEs interpret
-// the @ts-check directive. It will give you helpful autocompletion when
-// implementing this exercise.
 
 /**
  * Determines how long it takes to prepare a certain juice.
@@ -11,7 +7,19 @@
  * @returns {number} time in minutes
  */
 export function timeToMixJuice(name) {
-  throw new Error('Please implement the timeToMixJuice function');
+  switch (name) {
+    case 'Pure Strawberry Joy':
+      return 0.5;
+    case 'Energizer':
+    case 'Green Garden':
+      return 1.5;
+    case 'Tropical Island':
+      return 3;
+    case 'All or Nothing':
+      return 5;
+    default:
+      return 2.5;
+  }
 }
 
 /**
@@ -23,7 +31,33 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Please implement the limesToCut function');
+  let wedgeSupply = 0;
+  let limeCount = 0;
+
+  while (wedgeSupply < wedgesNeeded) {
+    switch (limes[limeCount]) {
+      case 'small':
+        wedgeSupply += 6;
+        limeCount++;
+        break;
+      case 'medium':
+        wedgeSupply += 8;
+        limeCount++;
+        break;
+      case 'large':
+        wedgeSupply += 10;
+        limeCount++;
+        break;
+    }
+
+    if (limeCount < limes.length) {
+      continue;
+    } else {
+      break;
+    }
+  }
+
+  return limeCount;
 }
 
 /**
@@ -34,5 +68,19 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+  const remainingOrders = [];
+
+  let requiredTime = 0;
+  let orderCount = 0;
+  while (requiredTime < timeLeft) {
+    requiredTime += timeToMixJuice(orders[orderCount]);
+    orderCount++;
+  }
+
+  while (orderCount < orders.length) {
+    remainingOrders.push(orders[orderCount]);
+    orderCount++;
+  }
+
+  return remainingOrders;
 }
