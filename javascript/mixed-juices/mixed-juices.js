@@ -38,17 +38,16 @@ export function limesToCut(wedgesNeeded, limes) {
     switch (limes[limeCount]) {
       case 'small':
         wedgeSupply += 6;
-        limeCount++;
         break;
       case 'medium':
         wedgeSupply += 8;
-        limeCount++;
         break;
       case 'large':
         wedgeSupply += 10;
-        limeCount++;
         break;
     }
+
+    limeCount++;
 
     if (limeCount < limes.length) {
       continue;
