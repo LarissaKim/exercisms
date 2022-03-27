@@ -44,25 +44,27 @@ export function limesToCut(wedgesNeeded, limes) {
   let wedgeSupply = 0;
   let limeCount = 0;
 
-  while (limes.length > 0 && wedgeSupply < wedgesNeeded) {
-    switch (limes[limeCount]) {
-      case 'small':
-        wedgeSupply += LIME_WEDGES_SM;
-        break;
-      case 'medium':
-        wedgeSupply += LIME_WEDGES_MD;
-        break;
-      case 'large':
-        wedgeSupply += LIME_WEDGES_LG;
-        break;
-    }
+  if (limes.length > 0) {
+    while (wedgeSupply < wedgesNeeded) {
+      switch (limes[limeCount]) {
+        case 'small':
+          wedgeSupply += LIME_WEDGES_SM;
+          break;
+        case 'medium':
+          wedgeSupply += LIME_WEDGES_MD;
+          break;
+        case 'large':
+          wedgeSupply += LIME_WEDGES_LG;
+          break;
+      }
 
-    limeCount++;
+      limeCount++;
 
-    if (limeCount < limes.length) {
-      continue;
-    } else {
-      break;
+      if (limeCount < limes.length) {
+        continue;
+      } else {
+        break;
+      }
     }
   }
 
