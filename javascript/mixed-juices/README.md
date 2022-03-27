@@ -103,6 +103,8 @@ timeToMixJuice('Berries & Lime');
 
 ## 2. Replenish the lime wedge supply
 
+> When life gives you limes, cut 'em up and use the wedges for decoration :tropical_drink:
+
 A lot of Li Mei's creations include lime wedges, either as an ingredient or as part of the decoration.
 So when she starts her shift in the morning she needs to make sure the bin of lime wedges is full for the day ahead.
 
