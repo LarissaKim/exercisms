@@ -1,5 +1,22 @@
 // @ts-check
 
+// Default preparation time for a drink (e.g. special offers)
+const DEFAULT_PREP_TIME = 2.5;
+
+// Preparation time in minutes per juice from menu
+const menuPrepTime = {
+  'Pure Strawberry Joy': 0.5,
+  Energizer: 1.5,
+  'Green Garden': 1.5,
+  'Tropical Island': 3,
+  'All or Nothing': 5,
+};
+
+// Number of wedges per lime size
+const LIME_WEDGES_SM = 6;
+const LIME_WEDGES_MD = 8;
+const LIME_WEDGES_LG = 10;
+
 /**
  * Determines how long it takes to prepare a certain juice.
  *
@@ -8,17 +25,10 @@
  */
 export function timeToMixJuice(name) {
   switch (name) {
-    case 'Pure Strawberry Joy':
-      return 0.5;
-    case 'Energizer':
-    case 'Green Garden':
-      return 1.5;
-    case 'Tropical Island':
-      return 3;
-    case 'All or Nothing':
-      return 5;
+    case name in menuPrepTime && name:
+      return menuPrepTime[name];
     default:
-      return 2.5;
+      return DEFAULT_PREP_TIME;
   }
 }
 
@@ -37,13 +47,13 @@ export function limesToCut(wedgesNeeded, limes) {
   while (wedgeSupply < wedgesNeeded) {
     switch (limes[limeCount]) {
       case 'small':
-        wedgeSupply += 6;
+        wedgeSupply += LIME_WEDGES_SM;
         break;
       case 'medium':
-        wedgeSupply += 8;
+        wedgeSupply += LIME_WEDGES_MD;
         break;
       case 'large':
-        wedgeSupply += 10;
+        wedgeSupply += LIME_WEDGES_LG;
         break;
     }
 
